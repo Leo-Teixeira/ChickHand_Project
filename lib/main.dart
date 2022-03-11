@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'navBar.dart';
 
 void main() {
   runApp(const Login());
@@ -83,7 +84,9 @@ class LoginPageState extends State<LoginPage> {
   //la fonction connexion va permettre de verifier l'identifant et le mot de passe de l'utilisateur afin de le connecter a l'aide du sip au bon serveur
   connexion() {
     if (etLogin.text == "leo" && etMdp.text == "test") {
-      return NavBar();
+      return NavBar(
+        userId: 1,
+      );
     } else {
       exit(0);
     }

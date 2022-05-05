@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
@@ -26,13 +28,40 @@ class profilPageState extends State<profilPage> {
   Widget build(BuildContext build) {
     return Scaffold(
         body: Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
       children: <Widget>[
-        CircleAvatar(child: Icon(Icons.person, size: 50)),
-        Text("Leo"),
-        Text("Teixeira"),
-        Text("teixeiraleo@gmail.com"),
-        Text("500"),
-        Text("Competence"),
+        CircleAvatar(
+          child: Icon(Icons.person, size: 150),
+          radius: 100,
+        ),
+        Text(
+          "Leo",
+          style: TextStyle(fontSize: 24),
+          textAlign: TextAlign.center,
+        ),
+        Text(
+          "Teixeira",
+          textAlign: TextAlign.center,
+        ),
+        Text(
+          "teixeiraleo@gmail.com",
+          textAlign: TextAlign.center,
+        ),
+        Text(
+          "500",
+          textAlign: TextAlign.center,
+        ),
+        Text(
+          "Competence",
+          textAlign: TextAlign.center,
+        ),
+        Card(
+          child: Text(
+            "Changer de mot de passe",
+            textAlign: TextAlign.center,
+          ),
+          on
+        )
       ],
     ));
   }

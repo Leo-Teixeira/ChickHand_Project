@@ -1,40 +1,57 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'navBar.dart';
 
+//foçnction qui permet le lancement de l'application
 void main() {
   runApp(const Login());
 }
 
+//class principal qui va permettre de definir les caractéristique de l'application ainsi que de lancer la page principal
 class Login extends StatelessWidget {
   const Login({Key? key}) : super(key: key);
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    //ce return va permettre de retourner la page
+    //flutter fonctionne seulement en widget ce qui veux dire qu'une page correspond a un widget
     return MaterialApp(
-      title: 'ChickHand',
+      title: "ChickHand",
       theme: ThemeData(
+        // This is the theme of your application.
+        //
+        // Try running your application with "flutter run". You'll see the
+        // application has a blue toolbar. Then, without quitting the app, try
+        // changing the primarySwatch below to Colors.green and then invoke
+        // "hot reload" (press "r" in the console where you ran "flutter run",
+        // or simply save your changes to "hot reload" in a Flutter IDE).
+        // Notice that the counter didn't reset back to zero; the application
+        // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const LoginPage(title: 'ChickHand'),
+      //le homme correspond à notre page. on definit dans un premier temps les caractéristique de notre appBar puis ensuite de quoi sera constituer le body
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Text("ChickHand"),
+        ),
+        body: LoginPage(),
+      ),
     );
   }
 }
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({Key? key, required this.title}) : super(key: key);
-  final String title;
+//la classe register correspond a notre body et va servir a nous connecter grace au sip
+class LoginPage extends StatelessWidget {
+  LoginPage({Key? key}) : super(key: key);
 
-  @override
-  State<LoginPage> createState() => LoginPageState();
-}
+  String domaine = "mututel.vozit.fr";
 
-class LoginPageState extends State<LoginPage> {
-  final etLogin = TextEditingController();
+  //on definis les different controlleur qui vous nous servir a recuperer la valeur de notre textField
   final etMdp = TextEditingController();
+  final etLogin = TextEditingController();
 
+  //widget qui est le corps de cette page ou on va definir nos deux TextField ainsi que le bouton de connexion qui nous redirigera par la suite sur une autre page
   @override
   Widget build(BuildContext context) {
     //le retour se fera sous forme de colonne ce qui va permettre de pouvoir definir plusieurs champs dans le body
@@ -84,9 +101,7 @@ class LoginPageState extends State<LoginPage> {
   //la fonction connexion va permettre de verifier l'identifant et le mot de passe de l'utilisateur afin de le connecter a l'aide du sip au bon serveur
   connexion() {
     if (etLogin.text == "leo" && etMdp.text == "test") {
-      return NavBar(
-        userId: 1,
-      );
+      return NavBar(userId: 1);
     } else {
       exit(0);
     }

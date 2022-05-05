@@ -81,6 +81,42 @@ class NavBarPageState extends State<NavBarPage> {
           ],
         ),
       ),
+      //on definit sur qu'elle onglet on doit arriver lorsque l'on se connecte ainsi que l'action qui doit s'effectuer lorsque l'on change d'onglet
+      bottomNavigationBar: BottomNavyBar(
+        selectedIndex: currentIndex,
+        onItemSelected: (index) {
+          setState(() => currentIndex = index);
+          controllerPage.jumpToPage(index);
+        },
+        //on definit toutses les caractéristiques de nos onglets
+        items: <BottomNavyBarItem>[
+          BottomNavyBarItem(
+            title: Text('Message'),
+            icon: Icon(Icons.message),
+            activeColor: const Color(0xff00adef),
+          ),
+          BottomNavyBarItem(
+            title: Text('Services'),
+            icon: Icon(Icons.business_center),
+            activeColor: const Color(0xff00adef),
+          ),
+          BottomNavyBarItem(
+            title: Text('Créer Services'),
+            icon: Icon(Icons.add_circle_outline),
+            activeColor: const Color(0xff00adef),
+          ),
+          BottomNavyBarItem(
+            title: Text('Carte'),
+            icon: Icon(Icons.map_outlined),
+            activeColor: const Color(0xff00adef),
+          ),
+          BottomNavyBarItem(
+            title: Text('Profil'),
+            icon: Icon(Icons.person),
+            activeColor: const Color(0xff00adef),
+          ),
+        ],
+      ),
     );
   }
 }
